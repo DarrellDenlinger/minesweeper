@@ -1,0 +1,20 @@
+# Minesweeper
+## A learning in HTML/CSS/JavaScript
+
+ ![Minesweeper image](/Minesweeper.png)
+
+## Purpose
+
+The goal of this project was to practice basic web development and gain experience with raw HTML/CSS/JavaScript without any libraries or frameworks. Later the project may be duplicated with higher level frameworks for comparison.
+
+It uses features that are generally available on browsers at the time written (2023). 
+
+It was created with the intent of presenting at the Prescott Area Web Developers group.
+http://pawd.org/
+
+
+## Running the Project
+
+This project was created in Visual Studio Code and runs conveniently with the Live Server Plugin.
+Right click on the index.html file and choose "open with Live Server".
+The project was tested on Chrome v119.

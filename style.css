@@ -1,0 +1,173 @@
+:root {
+    --board-background-color: #777;
+    --tile-background-color: #DDD;
+    --bomb-background-color: red;
+    --exposed-background-color: #888;
+    --accused-background-color: rgb(214, 214, 42);
+    --correctly-accused-background-color: pink;
+    --leftover-bomb-background-color: rgb(158, 235, 158);
+    --tile-end-game-remainder-color: #BBB;
+}
+
+/* https://www.fontspace.com/category/pirates    pirate fonts */
+@font-face {
+    font-family: treasureMapFont;
+    src: url('Treasuremap-Ea1vj.ttf');
+}
+
+@font-face {
+    font-family: treasureHuntFont;
+    src: url('TreasurehuntPersonalUseRegular-3zKgp.otf');
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+#body {
+    color: #444;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#body::after {
+    content: "";
+    background-image: url("map.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.28;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+  }
+
+  .header > h1 {
+    font-size: 3rem;
+    font-family: treasureHuntFont;
+    margin-top: 3rem;
+  }
+
+#check-accusations-button {
+    font-size: 1.5rem;
+    border-radius: .3rem;
+    cursor: pointer;
+}
+
+#check-accusations-button[disabled] {
+    cursor: not-allowed;
+}
+
+.game-info-section {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+#board-section {
+    background-color: var(--board-background-color);
+    border: 2px solid black;
+    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: repeat(var(--board-size), 4rem);
+    grid-template-rows: repeat(var(--board-size), 4rem);
+    line-height: 4rem;
+    text-align: center;
+    align-items: stretch;
+    gap: 2px;
+    font-size: 2.5rem;
+    outline: inset thick #AAA;
+}
+
+.tile {
+    background-color: var(--tile-background-color);
+    border-radius: .2rem;
+    border: 1px solid var(--tile-background-color);
+    color: white;
+    cursor: default;
+}
+
+.tile:not([data-exposed]) {
+    cursor: pointer;
+}
+
+[data-exposed] {
+    background-color: var(--exposed-background-color);
+}
+
+[data-is-bomb][data-exposed] {
+    background-color: var(--bomb-background-color);
+}
+
+[data-accused],
+.tile[data-accused][data-exposed] {
+    background-color: var(--accused-background-color);
+}
+
+.tile.correctly-accused {
+    background-image: linear-gradient(to bottom right, var(--bomb-background-color), var(--accused-background-color));
+}
+
+.tile.leftover-bomb {
+    background-color: var(--leftover-bomb-background-color);
+}
+
+/* [data-accused][data-exposed][data-end-game-remainder] {
+    background-color: purple;
+} */
+
+.tile[data-end-game-remainder] {
+    background-color: var(--tile-end-game-remainder-color);
+}
+
+#new-game-section {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-top: 2rem;
+    outline: inset thick #AAA;
+    padding: .5rem;
+    background-color: var(--tile-background-color);
+    font-size: 1.2rem;
+}
+
+#game-restart-button {
+    font-size: 1.2rem;
+    border-radius: .3rem;
+    cursor: pointer;
+}
+
+.modal.open {
+    display: block;
+}
+
+.overlay {
+    display: none;
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.dialog {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    padding: 1rem;
+    border-radius: .25rem;
+    background-color: white;
+}
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" type="module"></script>
+    <title>Minesweeper</title>
+</head>
+<body id="body">
+    <header class="header">
+        <h1>Mine]sweeper</h1>
+    </header>
+    <section class="game-info-section">
+        <div>
+            <label for="bomb-count">Bombs:</label>
+            <span id="bomb-count">0</span>
+        </div>
+        <div>
+            <label for="accusation-count">Accusations:</label>
+            <span id="accusation-count">0</span>
+        </div>
+        <button id="check-accusations-button">Check Accusations</button>
+    </section>
+    <section id="board-section">
+        
+    </section>
+    <section id="new-game-section">
+        <div>
+            <label for="new-bomb-count">Bomb Count</label>
+            <input type=number id="new-bomb-count" min=1 max="16" step=1 value="3"></input>
+        </div>
+        <div>
+            <label for="new-board-size">Board Size</label>
+            <input type=number id="new-board-size" min=1 max="16" step=1 value="10"></input>
+        </div>
+        <button id="game-restart-button">New Game</button>
+    </section>
+    <div id="game-results-overlay" class="modal overlay"></div>
+    <div id="game-results-modal-win" class="modal dialog">
+        <h3>***You Win***</h3>
+    </div>
+    <div id="game-results-modal-lose" class="modal dialog">
+        <h3>You Lose</h3>
+    </div>
+</body>
+</html>
