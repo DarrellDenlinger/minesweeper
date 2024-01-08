@@ -351,7 +351,7 @@ class Minesweeper {
 
 ////// Utility Functions ///////
 
-function getNeighborIndices(centralIndex, boardSize) {
+export function getNeighborIndices(centralIndex, boardSize) {
   const [centerRow, centerColumn] = coordinatesFromIndex(centralIndex, boardSize)
   const neighborTileIndices = new Array()
   for (let row = centerRow - 1; row <= centerRow + 1; row++) {
@@ -370,11 +370,22 @@ function getNeighborIndices(centralIndex, boardSize) {
   return neighborTileIndices
 }
 
-function indexFromCoordinates(row, column, boardSize) {
+export function indexFromCoordinates(row, column, boardSize) {
+  if (boardSize == null || isNaN(boardSize) || boardSize <= 0)
+    throw new Error(`bad input: (${row}, ${column}, ${boardSize})`)
+  if (row == null || isNaN(row) || row < 0 || row >= boardSize)
+    throw new Error(`bad input: (${row}, ${column}, ${boardSize})`)
+  if (column == null || isNaN(column) || column < 0 || column >= boardSize)
+    throw new Error(`bad input: (${row}, ${column}, ${boardSize})`)
   return row * boardSize + column
 }
 
-function coordinatesFromIndex(index, boardSize) {
+export function coordinatesFromIndex(index, boardSize) {
+  if (boardSize == null || isNaN(boardSize) || boardSize <= 0)
+    throw new Error(`bad input: (${index}, ${boardSize})`)
+  if (index == null || isNaN(index) || index < 0 || index >= boardSize * boardSize)
+    throw new Error(`bad input: (${index}, ${boardSize})`)
+
   const row = Math.floor(index / boardSize)
   const column = index - row * boardSize
   return [row, column]
