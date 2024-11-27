@@ -20,3 +20,15 @@ Right click on the index.html file and choose "open with Live Server".
 The project was tested on Chrome v119.
 
 Unit Tests powered by Jest can be run with 'npm test'
+
+Alternatively you can build it and run it with your own server.
+
+Build the dist
+npm run build
+
+Run a lightweight http server from the dist directory
+python3 -m http.server 8000
+
+View in browser at localhost:8000
+
+
