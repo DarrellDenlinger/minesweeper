@@ -23,10 +23,10 @@ Unit Tests powered by Jest can be run with 'npm test'
 
 Alternatively you can build it and run it with your own server.
 
-Build the dist
+Build the dist <br>
 npm run build
 
-Run a lightweight http server from the dist directory
+Run a lightweight http server from the dist directory <br>
 python3 -m http.server 8000
 
 View in browser at localhost:8000
