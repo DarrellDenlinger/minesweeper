@@ -12,8 +12,11 @@ It uses features that are generally available on browsers at the time written (2
 It was created with the intent of presenting at the Prescott Area Web Developers group.
 http://pawd.org/
 
+## Project published on Github Pages
+https://darrelldenlinger.github.io/minesweeper/
 
-## Running the Project
+
+## Running the Project Locally
 
 This project was created in Visual Studio Code and runs conveniently with the Live Server Plugin.
 Right click on the index.html file and choose "open with Live Server".
